@@ -16,7 +16,7 @@
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <10>;
+            tapping-term-ms = <50>;
             flavor = "tap-preferred";
         };
 
@@ -40,10 +40,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB       &kp Q  &kp W  &kp F     &kp P  &kp B                            &kp J                        &kp L  &kp U          &kp Y    &kp SEMI  &kp ESCAPE
-&trans        &kp A  &kp R  &kp S     &kp T  &kp G                            &kp M                        &kp N  &kp E          &kp I    &kp O     &kp APOS
-&kp LEFT_ALT  &kp X  &kp C  &kp D     &kp V  &kp Z                            &kp K                        &kp H  &kp COMMA      &kp DOT  &kp FSLH  &kp ESC
-                            &kp LGUI  &mo 1  &tap_hold_kp LEFT_SHIFT SPACE    &tap_hold_kp LEFT_SHIFT RET  &mo 2  &kp BACKSPACE
+&kp TAB             &kp Q  &kp W  &kp F     &kp P  &kp B                            &kp J                        &kp L  &kp U          &kp Y    &kp SEMI  &kp ESCAPE
+&kp LS(LEFT_SHIFT)  &kp A  &kp R  &kp S     &kp T  &kp G                            &kp M                        &kp N  &kp E          &kp I    &kp O     &kp APOS
+&kp LEFT_ALT        &kp X  &kp C  &kp D     &kp V  &kp Z                            &kp K                        &kp H  &kp COMMA      &kp DOT  &kp FSLH  &kp ESC
+                                  &kp LGUI  &mo 1  &tap_hold_kp LEFT_SHIFT SPACE    &tap_hold_kp LEFT_SHIFT RET  &mo 2  &kp BACKSPACE
             >;
         };
 
