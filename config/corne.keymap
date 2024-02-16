@@ -28,6 +28,15 @@
             continue-list = <RETURN>;
             mods = <(MOD_LGUI)>;
         };
+
+        mouseclick_kp_hold_behaviour: mouseclick_kp_hold_behaviour {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOUSECLICK_KP_HOLD_BEHAVIOUR";
+            bindings = <&mkp>, <&to>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+        };
     };
 
     keymap {
@@ -98,10 +107,10 @@
 
         gaming {
             bindings = <
-&kp ESC  &kp Q  &kp P  &kp E     &kp F     &kp G                            &trans  &trans  &trans  &trans  &trans  &trans
-&kp TAB  &kp A  &kp S  &kp W     &kp D     &kp R                            &trans  &trans  &trans  &trans  &trans  &trans
-&to 0    &kp Z  &kp X  &kp C     &kp V     &kp B                            &trans  &trans  &trans  &trans  &trans  &trans
-                       &mkp MB1  &mkp MB2  &tap_hold_kp LEFT_SHIFT SPACE    &trans  &trans  &trans
+&kp ESC  &kp Q  &kp P  &kp E     &kp F                                 &kp G                            &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB  &kp A  &kp S  &kp W     &kp D                                 &kp R                            &trans  &trans  &trans  &trans  &trans  &trans
+&to 0    &kp Z  &kp X  &kp C     &kp V                                 &kp B                            &trans  &trans  &trans  &trans  &trans  &trans
+                       &mkp MB1  &mouseclick_kp_hold_behaviour RCLK 1  &tap_hold_kp LEFT_SHIFT SPACE    &trans  &trans  &trans
             >;
         };
     };
