@@ -17,8 +17,9 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <0>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             retro-tap;
+            require-prior-idle-ms = <100>;
         };
 
         super_return: super_return {
