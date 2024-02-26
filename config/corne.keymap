@@ -21,14 +21,6 @@
             require-prior-idle-ms = <100>;
         };
 
-        super_return: super_return {
-            compatible = "zmk,behavior-caps-word";
-            label = "SUPER_RETURN";
-            #binding-cells = <0>;
-            continue-list = <RETURN>;
-            mods = <(MOD_LGUI)>;
-        };
-
         mouseclick_kp_hold_behaviour: mouseclick_kp_hold_behaviour {
             compatible = "zmk,behavior-hold-tap";
             label = "MOUSECLICK_KP_HOLD_BEHAVIOUR";
@@ -36,6 +28,17 @@
 
             #binding-cells = <2>;
             tapping-term-ms = <150>;
+        };
+
+        tap_kp_hold_layer: tap_kp_hold_layer {
+            compatible = "zmk,behavior-hold-tap";
+            label = "TAP_KP_HOLD_LAYER";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            flavor = "hold-preferred";
+            require-prior-idle-ms = <100>;
         };
     };
 
@@ -45,23 +48,23 @@
         toQwerty {
             bindings = <&to 0>;
             key-positions = <0 1 2>;
-            layers = <5>;
+            layers = <4>;
         };
     };
 
     keymap {
         compatible = "zmk,keymap";
 
-        qwerty {
+        default_layer {
             bindings = <
-&kp TAB     &kp Q  &kp W  &kp E         &kp R                          &kp T    &kp Y   &kp U   &kp I      &kp O    &kp P     &kp ESC
-&kp CAPS    &kp A  &kp S  &kp D         &kp F                          &kp G    &kp H   &kp J   &kp K      &kp L    &kp SEMI  &kp APOS
-&kp ESCAPE  &kp Z  &kp X  &kp C         &kp V                          &kp B    &kp N   &kp M   &kp COMMA  &kp DOT  &kp FSLH  &trans
-                          &kp LEFT_GUI  &tap_hold_kp LEFT_SHIFT SPACE  &mo 1    &trans  &trans  &trans
+&kp ESCAPE  &kp Q  &kp W  &kp F                     &kp P                          &kp B           &kp J          &kp L                          &kp U      &kp Y    &kp SEMI  &trans
+&caps_word  &kp A  &kp R  &kp S                     &kp T                          &kp G           &kp M          &kp N                          &kp E      &kp I    &kp O     &kp APOS
+&trans      &kp Z  &kp X  &kp C                     &kp V                          &kp D           &kp K          &kp H                          &kp COMMA  &kp DOT  &kp FSLH  &trans
+                          &tap_kp_hold_layer 2 TAB  &tap_hold_kp LEFT_SHIFT SPACE  &kp LEFT_GUI    &kp BACKSPACE  &tap_hold_kp LEFT_CONTROL RET  &mo 1
             >;
         };
 
-        lower_layer {
+        number_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -69,14 +72,14 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &none   &kp N1  &kp N2  &kp N3  &none    &none     &none     &none   &none      &none  &none
-&none   &kp N0  &kp N4  &kp N5  &kp N6  &none    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &none  &none
-&to 0   &none   &kp N7  &kp N8  &kp N9  &none    &none     &none     &none   &none      &none  &none
-                        &trans  &trans  &none    &none     &to 3     &none
+&trans  &none   &kp N7  &kp N8  &kp N9  &none    &none     &none     &none          &none      &none  &none
+&none   &kp N0  &kp N4  &kp N5  &kp N6  &none    &kp LEFT  &kp DOWN  &kp UP         &kp RIGHT  &none  &none
+&trans  &none   &kp N1  &kp N2  &kp N3  &none    &none     &none     &none          &none      &none  &none
+                        &trans  &trans  &none    &none     &to 3     &kp BACKSPACE
             >;
         };
 
-        raise_layer {
+        symbol_layer {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -84,43 +87,28 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL              &kp AT         &kp HASH   &kp DLLR   &kp PRCNT       &kp CARET  &kp AMPS  &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &kp N1                &kp N2         &kp N3     &kp N4     &kp N5          &kp N6     &kp N7    &kp N8           &kp N9    &kp N0    &kp GRAVE
-&kp LSHFT  &kp NON_US_BACKSLASH  &kp LS(UNDER)  &kp EQUAL  &kp MINUS  &kp LS(PLUS)    &kp LBKT   &kp RBKT  &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                                                &kp LGUI   &to 3      &kp SPACE       &kp RET    &trans    &kp RALT
+&trans  &kp PIPE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp MINUS  &kp PLUS     &trans  &kp AMPS    &kp KP_MULTIPLY  &trans     &trans  &trans
+&trans  &kp TILDE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDER  &kp EQUAL    &trans  &kp DOLLAR  &kp PERCENT      &kp CARET  &trans  &trans
+&trans  &kp GRAVE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans     &trans       &trans  &kp EXCL    &kp AT           &kp HASH   &trans  &trans
+                                         &kp BACKSPACE          &to 3      &trans       &trans  &trans      &trans
             >;
         };
 
-        layer_3 {
+        function_layer {
             bindings = <
-&to 0   &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6      &kp F7             &kp F8           &kp F9                &kp F10               &kp F11
-&trans  &kp F11       &kp F12       &trans        &trans        &trans        &trans      &trans             &trans           &trans                &kp PRINTSCREEN       &trans
-&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_CLR    &kp C_MUTE  &kp K_VOLUME_DOWN  &kp K_VOLUME_UP  &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &trans
-                                    &trans        &trans        &trans        &trans      &trans             &trans
-            >;
-        };
-
-        default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-            // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-            // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-            bindings = <
-&kp TAB             &kp Q  &kp W  &kp F     &kp P  &kp B                            &kp J                        &kp L  &kp U          &kp Y    &kp SEMI  &kp ESCAPE
-&kp LS(LEFT_SHIFT)  &kp A  &kp R  &kp S     &kp T  &kp G                            &kp M                        &kp N  &kp E          &kp I    &kp O     &kp APOS
-&kp LEFT_ALT        &kp X  &kp C  &kp D     &kp V  &kp Z                            &kp K                        &kp H  &kp COMMA      &kp DOT  &kp FSLH  &kp ESC
-                                  &kp LGUI  &mo 1  &tap_hold_kp LEFT_SHIFT SPACE    &tap_hold_kp LEFT_SHIFT RET  &mo 2  &kp BACKSPACE
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans    &bt BT_CLR  &trans        &trans        &trans        &trans        &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans    &trans      &trans        &trans        &bt BT_SEL 4  &bt BT_SEL 0  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans    &trans      &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &trans        &trans
+                         &trans  &trans  &trans    &trans      &trans        &trans
             >;
         };
 
         gaming {
             bindings = <
-&kp ESC  &kp Q  &kp P  &kp E   &kp F   &kp G                            &trans  &trans  &trans  &trans  &trans  &trans
-&kp TAB  &kp A  &kp S  &kp W   &kp D   &kp R                            &trans  &trans  &trans  &trans  &trans  &trans
-&to 5    &kp Z  &kp X  &kp C   &kp V   &kp B                            &trans  &trans  &trans  &trans  &trans  &trans
-                       &trans  &trans  &tap_hold_kp LEFT_SHIFT SPACE    &trans  &trans  &trans
+&kp ESC  &kp Q  &kp G  &kp R    &kp T                       &kp Y     &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB  &kp A  &kp S  &kp W    &kp D                       &kp F     &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &kp Z  &kp X  &kp C    &kp V                       &kp B     &trans  &trans  &trans  &trans  &trans  &trans
+                       &kp RET  &tap_kp_hold_layer 1 SPACE  &trans    &trans  &trans  &trans
             >;
         };
     };
