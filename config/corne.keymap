@@ -59,7 +59,7 @@
             bindings = <
 &kp ESCAPE  &kp Q  &kp W  &kp F                     &kp P                          &kp B           &kp J          &kp L                          &kp U      &kp Y    &kp SEMI  &trans
 &caps_word  &kp A  &kp R  &kp S                     &kp T                          &kp G           &kp M          &kp N                          &kp E      &kp I    &kp O     &kp APOS
-&trans      &kp Z  &kp X  &kp C                     &kp V                          &kp D           &kp K          &kp H                          &kp COMMA  &kp DOT  &kp FSLH  &trans
+&tog 4      &kp Z  &kp X  &kp C                     &kp V                          &kp D           &kp K          &kp H                          &kp COMMA  &kp DOT  &kp FSLH  &trans
                           &tap_kp_hold_layer 2 TAB  &tap_hold_kp LEFT_SHIFT SPACE  &kp LEFT_GUI    &kp BACKSPACE  &tap_hold_kp LEFT_CONTROL RET  &mo 1
             >;
         };
@@ -97,8 +97,8 @@
         function_layer {
             bindings = <
 &trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans    &bt BT_CLR  &trans        &trans        &trans        &trans        &trans
-&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans    &trans      &trans        &trans        &bt BT_SEL 4  &bt BT_SEL 0  &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans    &trans      &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &trans        &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans    &trans      &trans        &trans        &trans        &bt BT_SEL 0  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans    &trans      &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &trans        &trans
                          &trans  &trans  &trans    &trans      &trans        &trans
             >;
         };
