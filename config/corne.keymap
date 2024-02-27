@@ -58,7 +58,7 @@
 
         default_layer {
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp F                     &kp P                          &kp B           &kp J          &kp L                          &kp U      &kp Y    &kp SEMI  &trans
+&kp ESCAPE  &kp Q  &kp W  &kp F                     &kp P                          &kp B           &kp J          &kp L                          &kp U      &kp Y    &kp SEMI  &kp TAB
 &caps_word  &kp A  &kp R  &kp S                     &kp T                          &kp G           &kp M          &kp N                          &kp E      &kp I    &kp O     &kp APOS
 &tog 4      &kp X  &kp C  &kp D                     &kp V                          &kp Z           &kp K          &kp H                          &kp COMMA  &kp DOT  &kp FSLH  &trans
                           &tap_kp_hold_layer 2 TAB  &tap_hold_kp LEFT_SHIFT SPACE  &kp LEFT_GUI    &kp BACKSPACE  &tap_hold_kp LEFT_CONTROL RET  &mo 1
@@ -88,9 +88,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&trans  &kp PIPE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp MINUS  &kp PLUS     &trans  &kp AMPS    &kp KP_MULTIPLY  &trans     &trans  &trans
-&trans  &kp TILDE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDER  &kp EQUAL    &trans  &kp DOLLAR  &kp PERCENT      &kp CARET  &trans  &trans
-&trans  &kp GRAVE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans     &trans       &trans  &kp EXCL    &kp AT           &kp HASH   &trans  &trans
+&trans  &kp PIPE   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp MINUS  &kp PLUS     &trans  &kp AMPS    &kp KP_MULTIPLY  &kp SINGLE_QUOTE  &trans  &trans
+&trans  &kp TILDE  &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp UNDER  &kp EQUAL    &trans  &kp DOLLAR  &kp PERCENT      &kp CARET         &trans  &trans
+&trans  &kp GRAVE  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &trans     &trans       &trans  &kp EXCL    &kp AT           &kp HASH          &trans  &trans
                                          &kp BACKSPACE          &to 3      &trans       &trans  &trans      &trans
             >;
         };
