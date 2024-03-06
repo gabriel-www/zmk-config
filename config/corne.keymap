@@ -58,7 +58,7 @@
         default_layer {
             bindings = <
 &kp ESCAPE    &kp Q  &kp W  &kp F          &kp P  &kp B                            &kp J                             &kp L                   &kp U      &kp Y    &kp SEMI  &kp TAB
-&kp LEFT_ALT  &kp A  &kp R  &kp S          &kp T  &kp G                            &kp M                             &tap_kp_hold_layer 0 N  &kp E      &kp I    &kp O     &kp APOS
+&kp LEFT_ALT  &kp A  &kp R  &kp S          &kp T  &kp G                            &kp M                             &tap_kp_hold_layer 3 N  &kp E      &kp I    &kp O     &kp APOS
 &kp LEFT_GUI  &kp X  &kp C  &kp D          &kp V  &kp Z                            &kp K                             &kp H                   &kp COMMA  &kp DOT  &kp FSLH  &trans
                             &kp BACKSPACE  &mo 2  &tap_hold_kp LEFT_SHIFT SPACE    &tap_hold_kp LEFT_CONTROL RETURN  &mo 1                   &kp TAB
             >;
