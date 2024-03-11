@@ -69,7 +69,7 @@
             bindings = <
 &kp ESCAPE    &kp Q  &kp W  &kp F          &kp P  &kp B                                    &kp J                          &kp L                   &kp U      &kp Y    &kp SEMI  &kp TAB
 &kp LEFT_ALT  &kp A  &kp R  &kp S          &kp T  &kp G                                    &kp M                          &tap_kp_hold_layer 4 N  &kp E      &kp I    &kp O     &kp APOS
-&kp LEFT_GUI  &kp X  &kp C  &kp D          &kp V  &kp Z                                    &kp K                          &kp H                   &kp COMMA  &kp DOT  &kp FSLH  &trans
+&kp LEFT_GUI  &kp X  &kp C  &kp D          &kp V  &kp Z                                    &kp K                          &kp H                   &kp COMMA  &kp DOT  &kp FSLH  &kp A
                             &kp BACKSPACE  &mo 1  &tap_hold_kp_timed LEFT_CONTROL SPACE    &tap_hold_kp LEFT_SHIFT ENTER  &mo 2                   &kp TAB
             >;
         };
