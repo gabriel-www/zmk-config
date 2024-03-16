@@ -36,7 +36,7 @@
             bindings = <&mo>, <&kp>;
 
             #binding-cells = <2>;
-            tapping-term-ms = <300>;
+            tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
 
@@ -67,9 +67,9 @@
 
         default_layer {
             bindings = <
-&kp ESCAPE    &kp Q  &kp W  &kp F          &kp P  &kp B                                    &kp J                          &kp L                          &kp U      &kp Y    &kp SEMI  &kp TAB
-&kp LEFT_ALT  &kp A  &kp R  &kp S          &kp T  &kp G                                    &kp M                          &tap_hold_kp_timed LEFT_GUI N  &kp E      &kp I    &kp O     &kp APOS
-&trans        &kp X  &kp C  &kp D          &kp V  &kp Z                                    &kp K                          &kp H                          &kp COMMA  &kp DOT  &kp FSLH  &kp A
+&kp ESCAPE    &kp Q  &kp W  &kp F          &kp P  &kp B                                    &kp J                          &kp L                          &kp U                   &kp Y    &kp SEMI  &kp TAB
+&kp LEFT_ALT  &kp A  &kp R  &kp S          &kp T  &kp G                                    &kp M                          &tap_hold_kp_timed LEFT_GUI N  &tap_kp_hold_layer 3 E  &kp I    &kp O     &kp APOS
+&trans        &kp X  &kp C  &kp D          &kp V  &kp Z                                    &kp K                          &kp H                          &kp COMMA               &kp DOT  &kp FSLH  &kp A
                             &kp BACKSPACE  &mo 1  &tap_hold_kp_timed LEFT_CONTROL SPACE    &tap_hold_kp LEFT_SHIFT ENTER  &mo 2                          &kp TAB
             >;
         };
